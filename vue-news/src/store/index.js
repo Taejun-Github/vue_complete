@@ -13,6 +13,7 @@ export const store = new Vuex.Store({
     item: []
   },
   getters: {
+    // computed와 동일한 속성이지만 store에 저장된다.
     fetchedAsk(state) {
         return state.ask;
     },
