@@ -1,9 +1,11 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-// 왜 바로 vue-router로 가져올 수 있을까? package.json에 정의되어 있기 때문이다.
+// node_modules에 있는 것은 이렇게 바로 가져올 수 있다.
 import NewsView from '../views/NewsView.vue';
 import AskView from '../views/AskView.vue';
 import JobsView from '../views/JobsView.vue';
+import UserView from '../views/UserView.vue';
+import ItemView from '../views/ItemView.vue';
 
 Vue.use(VueRouter);
 
@@ -29,6 +31,13 @@ export const router = new VueRouter({
             path: '/jobs',
             component: JobsView,
         },
-        
+        {
+            path: '/user/:id',
+            component: UserView,
+        },
+        {
+            path: '/item/:id',
+            component: ItemView,
+        },
     ]
 });
