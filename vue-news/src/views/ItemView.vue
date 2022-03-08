@@ -29,9 +29,9 @@ export default {
   computed: {
     ...mapGetters(['fetchedItem']),
   },
- created() {
+  created() {
   //  console.log('a');
-   const id = this.$route.params.id;
+    const id = this.$route.params.id;
     this.$store.dispatch('FETCH_ITEM', id);
   },
 }

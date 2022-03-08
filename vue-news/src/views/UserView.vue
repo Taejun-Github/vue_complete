@@ -19,11 +19,13 @@ export default {
     computed: {
         userInfo() {
             return this.$store.state.user;
+            // 그리고 가져온 유저의 정보를 이렇게 불러온다.
         },
     },
     created() {
         const userName = this.$route.params.id;
         this.$store.dispatch('FETCH_USER', userName);
+        // 이것을 실행하면 비동기 함수를 호출하여 store의 state에다가 유저의 정보를 저장하게 된다.
     }
 }
 </script>
