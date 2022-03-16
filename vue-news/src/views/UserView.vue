@@ -20,6 +20,8 @@ export default {
         userInfo() {
             return this.$store.state.user;
             // 그리고 가져온 유저의 정보를 이렇게 불러온다.
+            // 만약에 vuex의 저장소를 여러개 만들려면? main.js에서 다른 이름으로 저장소를 여러 개 만든 후에 접근한다.
+            // 예를 들어 store 외에도 store2를 main.js에서 만들었으면 this.$store2.state.변수 로 접근하면 된다.
         },
     },
     created() {
