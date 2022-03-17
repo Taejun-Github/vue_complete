@@ -8,6 +8,9 @@ import UserView from '../views/UserView.vue';
 import ItemView from '../views/ItemView.vue';
 // import createListView from '../views/CreateListView.js';
 
+// import bus from '../utils/bus.js';
+import { store } from '../store/index.js';
+
 Vue.use(VueRouter);
 
 export const router = new VueRouter({
@@ -25,18 +28,49 @@ export const router = new VueRouter({
             // component에는 url 주소로 갔을 때 표시될 컴포넌트가 표시된다.
             component: NewsView,
             // component: createListView('NewsView'),
+            beforeEnter: (to, from, next) => {
+                console.log(from);
+                store.dispatch('FETCH_LIST', to.name)
+                .then(() => {      
+                  next();
+                })
+                .catch((error) => {
+                  console.log(error);
+                });
+            }
         },
         {
             path: '/ask',
             name: 'ask',
             // component: createListView('AskView'),
             component: AskView,
+
+            beforeEnter: (to, from, next) => {
+                console.log(from);
+                store.dispatch('FETCH_LIST', to.name)
+                .then(() => {      
+                  next();
+                })
+                .catch((error) => {
+                  console.log(error);
+                });
+            }
         },
         {
             path: '/jobs',
             name: 'jobs',
             // component: createListView('JobsView'),
             component: JobsView,
+            beforeEnter: (to, from, next) => {
+                console.log(from);
+                store.dispatch('FETCH_LIST', to.name)
+                .then(() => {      
+                  next();
+                })
+                .catch((error) => {
+                  console.log(error);
+                });
+            }
         },
         {
             path: '/user/:id',
