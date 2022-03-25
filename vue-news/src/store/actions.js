@@ -16,17 +16,17 @@ export default {
         context.commit('SET_ASK', response.data);
         return response;
       },
-      FETCH_USER(context, name) {
+      async FETCH_USER(context, name) {
         const response = await fetchUserInfo();
         context.commit('SET_USER', response.data);
         return response;
       },
-      FETCH_ITEM(context, id) {
+      async FETCH_ITEM(context, id) {
         const response = await fetchCommentItem();
         context.commit('SET_ITEM', response.data);
         return reseponse;
       },
-      FETCH_LIST({ commit }, pageName) {
+      async FETCH_LIST({ commit }, pageName) {
         const reseponse = await fetchList();
         context.commit('SET_LIST', reseponse.data);
         return response;
